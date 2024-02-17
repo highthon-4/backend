@@ -25,7 +25,7 @@ try {
     );
 
     $stmt = $pdo->prepare("UPDATE `login_sessions` SET `is_available` = 0 WHERE `account_idx` = :account_idx");
-    $stmt->bindValue(':account_idx', $account["idx"]);
+    $stmt->bindValue(':account_idx', $auth["idx"]);
     $stmt->execute();
 
     $response = array(
