@@ -60,6 +60,9 @@ try {
             "last_chatted" => $session["created_at"]
         ));
     }
+    usort($response["body"]["sessions"], function ($a, $b) {
+        return $a['last_chatted'] <=> $b['last_chatted'];
+    });
     goto response_handling;
 
 } catch (PDOException $e) {
